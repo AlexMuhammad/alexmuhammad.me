@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+import { NAVBAR_ITEM } from "../constants/index";
+import me from "../assets/images/me.jpg";
+---
+
+<header
+  class="flex md:items-center md:justify-between py-6 flex-col md:flex-row"
+>
+  <a href="/">
+    <Image
+      src={me}
+      alt="alex"
+      class="w-14 h-14 object-cover rounded-full cursor-pointer transition-all ease-in-out delay-150 duration-200 border-4 border-gray-200 hover:animate-spin"
+    />
+  </a>
+  <nav class="leading-loose space-x-6">
+    {
+      NAVBAR_ITEM.map((navbar) => (
+        <>
+          <a href={navbar.href} class="animate-underline font-mono text-lg">
+            {navbar.label}
+          </a>
+        </>
+      ))
+    }
+  </nav>
+</header>
+<style>
+  .animate-underline {
+    @apply inline-block after:duration-300 ease-out after:block after:h-1 after:rounded-full after:w-full after:origin-bottom-right after:scale-x-0 after:bg-red-600 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100;
+  }
+</style>

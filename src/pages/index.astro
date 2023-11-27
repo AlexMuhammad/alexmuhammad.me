@@ -1,0 +1,71 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import TypeWriter from "../components/TypeWriter";
+
+import {
+  NextjsIcon,
+  ReactIcon,
+  TypescriptIcon,
+  VscodeIcon,
+} from "../utils/icons";
+import me from "../assets/images/me.jpg";
+---
+
+<Layout title="Welcome to Astro.">
+  <Navbar />
+  <main>
+    <div
+      class="flex md:items-center gap-16 flex-col md:flex-row md:py-20 h-screen md:h-full"
+    >
+      <div class="space-y-5">
+        <div class="flex items-center gap-5 px-2">
+          <div class="relative flex h-2 w-2">
+            <span
+              class="bg-red-400 absolute inline-flex -top-1 -left-1 h-4 w-4 animate-ping rounded-full"
+            ></span>
+            <span class="relative h-2 w-2 bg-red-600 rounded-full"></span>
+          </div>
+          <span class="text-red-600 font-semibold flex gap-1">
+            Available For{" "}
+            <TypeWriter client:load />
+          </span>
+        </div>
+        <h1 class="text-5xl md:text-6xl font-sans font-extrabold">
+          Frontend Engineer
+        </h1>
+        <h3 class="text-xl md:text-2xl">
+          Hi, i'm Alex, a{" "}
+          <span class="text-red-600 font-semibold animate-hover-top">
+            <span class="relative">front-end engineer</span>
+          </span>{" "}
+           turning code into a canvas of joy, making the web a playful and
+          delightful space. 😊🚀
+        </h3>
+      </div>
+      <Image
+        src={me}
+        alt="alex"
+        class="w-72 h-72 object-cover rounded-full cursor-pointer transition-all ease-in-out delay-150 duration-200 shadow-red-200/40 shadow-xl hover:animate-spin hidden md:block"
+      />
+    </div>
+    <div>
+      <h1>current fav tech stacks/tools</h1>
+      <div class="flex items-center gap-3 mt-3">
+        <TypescriptIcon fill="gray" width={30} height={30} />
+        <ReactIcon fill="gray" width={30} height={30} />
+        <NextjsIcon fill="gray" width={30} height={30} />
+        <VscodeIcon fill="gray" width={30} height={30} />
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .animate-hover-top {
+    @apply cursor-pointer relative before:absolute before:bg-red-300 hover:before:opacity-25 before:bottom-0 before:left-0 before:h-full before:w-full before:origin-bottom before:scale-y-[0.25] hover:before:scale-y-100 before:transition-transform before:ease-in-out before:duration-500;
+  }
+</style>

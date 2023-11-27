@@ -1,0 +1,46 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="flex items-center justify-between mt-20 mb-10">
+  <span class="font-sans font-semibold text-red-600">
+    &copy; {year}
+  </span>
+  <div>
+    <ul class="flex items-center gap-5">
+      <li>
+        <a
+          href="https://github.com/AlexMuhammad"
+          target="_blank"
+          class="font-mono animate-underline"
+        >
+          Github
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/muh-alex-saputra-281ab6160/"
+          target="_blank"
+          class="font-mono animate-underline"
+        >
+          LinkedIn
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/muh-alex-saputra-281ab6160/"
+          target="_blank"
+          class="font-mono animate-underline"
+        >
+          Instagram
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .animate-underline {
+    @apply inline-block after:duration-300 ease-out after:block after:h-1 after:rounded-full after:w-full after:origin-bottom-right after:scale-x-0 after:bg-red-600 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100;
+  }
+</style>
