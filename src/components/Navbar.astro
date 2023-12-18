@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { NAVBAR_ITEM } from "../constants/index";
-import me from "../assets/images/me.jpg";
+import logo from "../assets/images/logo.jpg";
 ---
 
 <header
@@ -9,8 +9,8 @@ import me from "../assets/images/me.jpg";
 >
   <a href="/">
     <Image
-      src={me}
-      alt="alex"
+      src={logo}
+      alt="logo"
       class="w-14 h-14 object-cover rounded-full cursor-pointer transition-all ease-in-out delay-150 duration-200 border-4 border-gray-200 hover:animate-spin"
     />
   </a>

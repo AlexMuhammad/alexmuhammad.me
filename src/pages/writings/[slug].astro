@@ -1,0 +1,54 @@
+---
+import { getCollection, getEntryBySlug } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import type { CollectionEntry } from "astro:content";
+import PostHeader from "../../components/PostHeader.astro";
+import TableOfContent from "../../components/TableOfContent.astro"
+import { ArrowIcon } from "../../utils/icons";
+
+export const getStaticPaths = (async () => {
+    const posts = await getCollection('posts');
+
+    const paths = posts.map(post => {
+        return {
+            params: {
+                slug: post.slug
+            },
+            props: {
+                post
+            }
+        }
+    }) 
+    return paths
+});
+
+type Props = {
+    post: CollectionEntry<'posts'>
+}
+
+const {post} = Astro.props;
+
+console.log(post);
+
+const {Content, headings} = await post.render();
+console.log("Content", headings);
+
+---
+
+<Layout title={post.data.title}>
+    <a class="mb-10 inline-flex items-center gap-2 animate-hover-top" href="/writings">
+        <ArrowIcon/>
+        <span class="font-semibold text-xl">Back</span>
+    </a>
+    <PostHeader post={post}/>
+    <div class="flex gap-12">
+        <div class="prose prose-xl overflow-visible text-justify mt-10 border-l-2 px-5"><Content/></div>
+        <TableOfContent headings={headings}/>
+    </div>
+</Layout>
+
+<style>
+    .animate-hover-top {
+        @apply cursor-pointer relative before:absolute before:bg-red-300 hover:before:opacity-25 before:bottom-0 before:left-0 before:h-full before:w-full before:origin-bottom before:scale-y-0 hover:before:scale-y-100 before:transition-transform before:ease-in-out before:duration-500;
+    }
+</style>

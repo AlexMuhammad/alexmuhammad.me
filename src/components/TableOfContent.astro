@@ -1,0 +1,32 @@
+---
+import type {MarkdownHeading} from 'astro'
+
+type Props = {
+    headings: MarkdownHeading[]
+}
+
+const {headings} = Astro.props; 
+---
+<div class="w-full max-w-full border rounded-lg h-fit sticky top-10">
+    <h3 class="border-b w-full px-5 py-3 font-semibold text-red-600">Table of Contents</h3>
+    <ul class="space-y-2 p-5">
+        {
+            headings.map((heading) => (
+                <li>
+                    <a class="capitalize text-base scroll-smooth" href={`#${heading.slug}`}>{heading.slug}</a>
+                </li>
+            ))
+        }
+    </ul>
+</div>
+<style>
+
+:global(html) {
+    scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+    :global(html) {
+    scroll-behavior: auto;
+    }
+}
+</style>
