@@ -10,5 +10,25 @@ const Comment = () => {
     setMounted(true);
   }, []);
 
-  return <div id={id}>{mounted && <Giscus id={id} repo="AlexMuhammad/alexmuhammad.me" repoId="724053489" />}</div>;
+  return (
+    <div id={id} className="mt-10 w-full">
+      {mounted && (
+        <Giscus
+          id={id}
+          repo="AlexMuhammad/alexmuhammad.me"
+          repoId="R_kgDOKygt8Q"
+          category="Q&A"
+          categoryId="DIC_kwDOKygt8c4Cb1-v"
+          mapping="pathname"
+          reactionsEnabled="1"
+          emitMetadata="0"
+          inputPosition="top"
+          lang="en"
+          loading="lazy"
+        />
+      )}
+    </div>
+  );
 };
+
+export default Comment

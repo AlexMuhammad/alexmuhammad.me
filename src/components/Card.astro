@@ -8,15 +8,12 @@ const {post} = Astro.props;
 console.log(post);
 
 ---
-
-
-
-<div class="max-w-full my-3 p-6 bg-white border border-gray-200 rounded-lg drop-shadow-sm">
+<div class="max-w-full my-3 bg-white border border-gray-200 rounded-lg p-6">
   <h5 class="mb-2 text-2xl font-bold tracking-tight">
     {post.data.title}
   </h5>
   <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">{post.body}</p>
-  <a href={`writings/${post.slug}`} class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300">
+  <a href={`writings/${post.slug}`} class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 relative overflow-hidden bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.8)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat p-8 hover:bg-[position:200%_0,0_0] hover:duration-[2000ms]">
       Read more
       <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>

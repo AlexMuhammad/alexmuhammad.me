@@ -1,5 +1,6 @@
 ---
 import { getCollection, getEntryBySlug } from "astro:content";
+import Comment from "../../components/Comments"
 import Layout from "../../layouts/Layout.astro";
 import type { CollectionEntry } from "astro:content";
 import PostHeader from "../../components/PostHeader.astro";
@@ -41,10 +42,11 @@ console.log("Content", headings);
         <span class="font-semibold text-xl">Back</span>
     </a>
     <PostHeader post={post}/>
-    <div class="flex gap-12">
+    <div class="flex gap-12 dot-mask">
         <div class="prose prose-xl overflow-visible text-justify mt-10 border-l-2 px-5"><Content/></div>
         <TableOfContent headings={headings}/>
     </div>
+    <Comment client:idle/>
 </Layout>
 
 <style>

@@ -5,7 +5,7 @@ const TypeWriter = () => {
   return (
     <Typewriter
       options={{
-        strings: ["Hire", "Collab"],
+        strings: ["Hiring", "Collaborating"],
         autoStart: true,
         loop: true,
       }}

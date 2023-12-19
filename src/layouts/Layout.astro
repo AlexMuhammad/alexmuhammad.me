@@ -23,7 +23,7 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <div class="max-w-5xl mx-auto px-8">
+    <div class="w-full md:max-w-5xl mx-auto px-8">
       <Navbar/>
       <slot />
       <Footer/>
@@ -44,5 +44,22 @@ const { title } = Astro.props;
         border-left-color: #60a5fa;
         border-left-width: 3px;
         border-left-style: solid;
+  }
+  .dot-mask {
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+    background-size: 16px 16px;
+    /* -webkit-mask-image: radial-gradient(
+      ellipse 50% 50% at 50% 50%,
+      #000 60%,
+      transparent 100%
+    ); */
+    /* mask-image: radial-gradient(
+      ellipse 50% 50% at 50% 50%,
+      #000 60%,
+      transparent 100%
+    );   */
   }
 </style>
