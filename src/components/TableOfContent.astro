@@ -13,7 +13,7 @@ const {headings} = Astro.props;
         {
             headings.map((heading) => (
                 <li>
-                    <a class="capitalize text-base scroll-smooth" href={`#${heading.slug}`}>{heading.slug}</a>
+                    <a class={`capitalize text-base scroll-smooth ${heading.depth == 3 && "px-5"}`} href={`#${heading.slug}`}>{heading.slug}</a>
                 </li>
             ))
         }

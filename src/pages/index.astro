@@ -9,55 +9,77 @@ import {
   TypescriptIcon,
   VscodeIcon,
 } from "../utils/icons";
+import {Transition} from "../components/Animation"
+import {TransitionEase} from "../components/Animation"
 import me from "../assets/images/me.jpg";
+import Loader from "../components/Loader"
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="dot-mask">
-    <div
-      class="flex md:items-center gap-16 flex-col md:flex-row md:py-20 h-full"
-    >
-      <div class="space-y-5">
-        <div class="flex items-center gap-5 px-2">
-          <div class="relative flex h-2 w-2">
-            <span
-              class="bg-red-400 absolute inline-flex -top-1 -left-1 h-4 w-4 animate-ping rounded-full"
-            ></span>
-            <span class="relative h-2 w-2 bg-red-600 rounded-full"></span>
+  <Loader client:idle>
+    <main class="dot-mask">
+      <div
+        class="flex md:items-center gap-16 flex-col md:flex-row md:py-20 h-full"
+      >
+        <div class="space-y-5">
+          <TransitionEase duration={0.4} client:idle>
+          <div class="flex items-center gap-5 px-2">
+            <div class="relative flex h-2 w-2">
+              <span
+                class="bg-red-400 absolute inline-flex -top-1 -left-1 h-4 w-4 animate-ping rounded-full"
+              ></span>
+              <span class="relative h-2 w-2 bg-red-600 rounded-full"></span>
+            </div>
+            <span class="text-red-600 font-semibold flex gap-1">
+              Available For{" "}
+              <TypeWriter client:load />
+            </span>
           </div>
-          <span class="text-red-600 font-semibold flex gap-1">
-            Available For{" "}
-            <TypeWriter client:load />
-          </span>
+        </TransitionEase>
+          <TransitionEase client:idle duration={0.8}>
+            <h1 class="text-5xl my-3 md:text-6xl font-sans font-extrabold">
+              Frontend Engineer
+            </h1>
+          </TransitionEase>
+            <TransitionEase duration={1.5} client:idle>
+              <h3 class="text-xl md:text-2xl">
+                Hi, i'm Alex, a{" "}
+                <span class="text-red-600 font-semibold animate-hover-top">
+                  <span class="relative">front-end engineer</span>
+                </span>{" "}
+                 turning code into a canvas of joy, making the web a playful and
+                delightful space. 
+                <Transition client:idle>
+                  😊🚀
+                </Transition>
+              </h3>
+            </TransitionEase>
         </div>
-        <h1 class="text-5xl md:text-6xl font-sans font-extrabold">
-          Frontend Engineer
-        </h1>
-        <h3 class="text-xl md:text-2xl">
-          Hi, i'm Alex, a{" "}
-          <span class="text-red-600 font-semibold animate-hover-top">
-            <span class="relative">front-end engineer</span>
-          </span>{" "}
-           turning code into a canvas of joy, making the web a playful and
-          delightful space. 😊🚀
-        </h3>
+          <Image
+            src={me}
+            alt="alex"
+            class="w-72 h-72 object-cover rounded-full cursor-pointer transition-all ease-in-out delay-150 duration-200 shadow-red-200/40 shadow-xl hover:animate-spin hidden md:block"
+          />
       </div>
-      <Image
-        src={me}
-        alt="alex"
-        class="w-72 h-72 object-cover rounded-full cursor-pointer transition-all ease-in-out delay-150 duration-200 shadow-red-200/40 shadow-xl hover:animate-spin hidden md:block"
-      />
-    </div>
-    <div>
-      <h1>current fav tech stacks/tools</h1>
-      <div class="flex items-center gap-3 mt-3">
-        <TypescriptIcon fill="gray" width={30} height={30}/>
-        <ReactIcon fill="gray" width={30} height={30} />
-        <NextjsIcon fill="gray" width={30} height={30} />
-        <VscodeIcon fill="gray" width={30} height={30} role="img"/>
+      <div class="relative">
+        <h1>current fav tech stacks/tools</h1>
+        <div class="flex items-center gap-3 mt-3">
+          <TransitionEase client:idle duration={0.5}>
+            <TypescriptIcon fill="gray" width={30} height={30}/>
+          </TransitionEase>
+          <TransitionEase client:idle duration={1}>
+            <ReactIcon fill="gray" width={30} height={30} />
+          </TransitionEase>
+          <TransitionEase client:idle duration={1.5}>
+            <NextjsIcon fill="gray" width={30} height={30} />
+          </TransitionEase>
+          <TransitionEase client:idle duration={2}>
+            <VscodeIcon fill="gray" width={30} height={30} role="img"/>
+          </TransitionEase>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
+  </Loader>
 </Layout>
 
 <style>

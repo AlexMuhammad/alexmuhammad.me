@@ -6,6 +6,7 @@ import type { CollectionEntry } from "astro:content";
 import PostHeader from "../../components/PostHeader.astro";
 import TableOfContent from "../../components/TableOfContent.astro"
 import { ArrowIcon } from "../../utils/icons";
+import Loader from "../../components/Loader";
 
 export const getStaticPaths = (async () => {
     const posts = await getCollection('posts');
@@ -28,25 +29,22 @@ type Props = {
 }
 
 const {post} = Astro.props;
-
-console.log(post);
-
 const {Content, headings} = await post.render();
-console.log("Content", headings);
-
 ---
 
 <Layout title={post.data.title}>
-    <a class="mb-10 inline-flex items-center gap-2 animate-hover-top" href="/writings">
-        <ArrowIcon/>
-        <span class="font-semibold text-xl">Back</span>
-    </a>
-    <PostHeader post={post}/>
-    <div class="flex gap-12 dot-mask">
-        <div class="prose prose-xl overflow-visible text-justify mt-10 border-l-2 px-5"><Content/></div>
-        <TableOfContent headings={headings}/>
-    </div>
-    <Comment client:idle/>
+    <Loader client:load>
+        <a class="mb-10 inline-flex items-center gap-2 animate-hover-top" href="/writings">
+            <ArrowIcon/>
+            <span class="font-semibold text-base md:text-xl">Back</span>
+        </a>
+        <PostHeader post={post}/>
+        <div class="flex gap-12 dot-mask mb-14">
+            <div class="prose prose-sm prose-h2:text-red-600 md:prose-lg overflow-visible text-justify mt-10 border-l-2 px-5 md:px-10"><Content/></div>
+            <TableOfContent headings={headings}/>
+        </div>
+        <Comment client:idle/>
+    </Loader>
 </Layout>
 
 <style>

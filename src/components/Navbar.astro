@@ -2,6 +2,8 @@
 import { Image } from "astro:assets";
 import { NAVBAR_ITEM } from "../constants/index";
 import logo from "../assets/images/logo.jpg";
+
+const pathname = new URL(Astro.request.url).pathname;
 ---
 
 <header
@@ -18,7 +20,7 @@ import logo from "../assets/images/logo.jpg";
     {
       NAVBAR_ITEM.map((navbar) => (
         <>
-          <a href={navbar.href} class="animate-underline font-mono text-lg">
+          <a href={navbar.href} class={`font-mono text-lg ${(pathname.startsWith(navbar.href) && navbar.href !== "/") ? 'bg-slate-200 w-full p-2 rounded-sm disabled:animate-underline text-center' : 'animate-underline'}`}>
             {navbar.label}
           </a>
         </>

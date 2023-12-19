@@ -1,13 +1,12 @@
 ---
 import { format } from "date-fns";
 const {post} = Astro.props;
-console.log("post header",post);
 ---
 <div class="w-full">
-    <h1 class="text-6xl font-sans font-semibold">{post.data.title}</h1>
+    <h1 class="text-3xl font-sans font-semibold md:text-6xl">{post.data.title}</h1>
     <div class="flex items-center mt-5 gap-3">
-        <span>{format(new Date(post.data.date), 'MMMM dd, yyyy')}</span>
+        <span class="font-sans text-sm md:text-base">{format(new Date(post.data.date), 'MMMM dd, yyyy')}</span>
         <div class="after:content-[''] w-2 h-2 rounded-full bg-red-600"></div>
-        <span>{post.data.author}</span>
+        <span class="font-sans font-semibold text-sm md:text-base">{post.data.author}</span>
     </div>
 </div>

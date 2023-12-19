@@ -23,7 +23,7 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <div class="w-full md:max-w-5xl mx-auto px-8">
+    <div class="w-full max-w-full md:max-w-5xl mx-auto px-8">
       <Navbar/>
       <slot />
       <Footer/>
@@ -33,17 +33,6 @@ const { title } = Astro.props;
 <style is:global>
   .animate-underline {
     @apply inline-block after:duration-300 ease-out after:block after:h-1 after:rounded-full after:w-full after:origin-bottom-right after:scale-x-0 after:bg-red-600 after:transition-transform after:hover:origin-bottom-left after:hover:scale-x-100;
-  }
-  div[data-rehype-pretty-code-fragment] { background-color: red;}
-      pre > code {
-        display: grid;
-        background-color: rgba(200, 200, 255, .09);
-      }
-      .highlighted {
-        background-color: rgba(200,200,255,.1);
-        border-left-color: #60a5fa;
-        border-left-width: 3px;
-        border-left-style: solid;
   }
   .dot-mask {
     inset: 0;

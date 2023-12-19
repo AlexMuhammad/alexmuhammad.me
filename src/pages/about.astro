@@ -1,7 +1,10 @@
 ---
+import Loader from "../components/Loader";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="About">
-  <main>[WIP]</main>
+  <Loader client:load>
+    <main>[WIP]</main>
+  </Loader>
 </Layout>

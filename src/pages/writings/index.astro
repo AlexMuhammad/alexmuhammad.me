@@ -2,24 +2,27 @@
 import Layout from "../../layouts/Layout.astro";
 import Card from "../../components/Card.astro";
 import {getCollection} from "astro:content";
+import Loader from "../../components/Loader";
 
 const posts = await getCollection('posts')
 ---
 
 <Layout title="Writings">
-  <main>
-    <article>
-      <ul>
-        {
-          posts.map((post:any) => {
-            return (
-              <Card 
-                post={post}
-              />
-            );
-          })
-        }
-      </ul>
-    </article>
-  </main>
+  <Loader client:load>
+    <main>
+      <article>
+        <ul>
+          {
+            posts.map((post:any) => {
+              return (
+                <Card 
+                  post={post}
+                />
+              );
+            })
+          }
+        </ul>
+      </article>
+    </main>
+  </Loader>
 </Layout>
