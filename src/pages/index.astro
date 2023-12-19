@@ -1,8 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import Footer from "../components/Footer.astro";
-import Navbar from "../components/Navbar.astro";
 import TypeWriter from "../components/TypeWriter";
 
 import {
@@ -53,10 +51,10 @@ import me from "../assets/images/me.jpg";
     <div>
       <h1>current fav tech stacks/tools</h1>
       <div class="flex items-center gap-3 mt-3">
-        <TypescriptIcon fill="gray" width={30} height={30} />
+        <TypescriptIcon fill="gray" width={30} height={30}/>
         <ReactIcon fill="gray" width={30} height={30} />
         <NextjsIcon fill="gray" width={30} height={30} />
-        <VscodeIcon fill="gray" width={30} height={30} />
+        <VscodeIcon fill="gray" width={30} height={30} role="img"/>
       </div>
     </div>
   </main>

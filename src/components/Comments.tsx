@@ -11,7 +11,7 @@ const Comment = () => {
   }, []);
 
   return (
-    <div id={id} className="mt-10 w-full">
+    <>
       {mounted && (
         <Giscus
           id={id}
@@ -27,8 +27,8 @@ const Comment = () => {
           loading="lazy"
         />
       )}
-    </div>
+    </>
   );
 };
 
-export default Comment
+export default Comment;

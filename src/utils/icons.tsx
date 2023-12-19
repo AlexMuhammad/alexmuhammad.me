@@ -1,11 +1,8 @@
-import { type SVGProps } from "react";
-
-export const VscodeIcon = (props: SVGProps<SVGSVGElement>) => {
+export const VscodeIcon = (props: any) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      role="img"
       fill="currentColor"
       {...props}
     >
@@ -15,12 +12,11 @@ export const VscodeIcon = (props: SVGProps<SVGSVGElement>) => {
   );
 };
 
-export const ReactIcon = (props: SVGProps<SVGSVGElement>) => {
+export const ReactIcon = (props: any) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      role="img"
       fill="currentColor"
       {...props}
     >
@@ -30,12 +26,11 @@ export const ReactIcon = (props: SVGProps<SVGSVGElement>) => {
   );
 };
 
-export const TypescriptIcon = (props: SVGProps<SVGSVGElement>) => {
+export const TypescriptIcon = (props: any) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      role="img"
       fill="currentColor"
       {...props}
     >
@@ -45,12 +40,11 @@ export const TypescriptIcon = (props: SVGProps<SVGSVGElement>) => {
   );
 };
 
-export const TailwindcssIcon = (props: SVGProps<SVGSVGElement>) => {
+export const TailwindcssIcon = (props: any) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      role="img"
       fill="currentColor"
       {...props}
     >
@@ -60,12 +54,11 @@ export const TailwindcssIcon = (props: SVGProps<SVGSVGElement>) => {
   );
 };
 
-export const NextjsIcon = (props: SVGProps<SVGSVGElement>) => {
+export const NextjsIcon = (props: any) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      role="img"
       fill="currentColor"
       {...props}
     >
@@ -75,8 +68,19 @@ export const NextjsIcon = (props: SVGProps<SVGSVGElement>) => {
   );
 };
 
-export const ArrowIcon = (props: SVGProps<SVGSVGElement>) => {
-  return(
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-  )
-}
+export const ArrowIcon = (props: any) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={24}
+    height={24}
+    fill="none"
+    stroke="currentColor"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth={2}
+    className="lucide lucide-arrow-left"
+    {...props}
+  >
+    <path d="m12 19-7-7 7-7M19 12H5" />
+  </svg>
+);
