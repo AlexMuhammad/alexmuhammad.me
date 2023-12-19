@@ -23,12 +23,15 @@ export const Transition = (props: { children: React.ReactNode }) => {
   );
 };
 
-export const TransitionEase = (props: { children: React.ReactNode, duration?:any }) => {
+export const TransitionEase = (props: {
+  children: React.ReactNode;
+  duration?: any;
+}) => {
   return (
     <motion.div
-      initial={{ x: "-100%" }}
+      initial={{ x: "-10%" }}
       animate={{ x: "0" }}
-      transition={{ duration: props.duration, ease: "easeInOut" }}
+      transition={{ duration: props.duration }}
     >
       {props.children}
     </motion.div>
