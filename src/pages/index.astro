@@ -16,7 +16,7 @@ import Loader from "../components/Loader"
 ---
 
 <Layout title="Welcome to Astro.">
-  <Loader client:idle>
+  <Loader client:load>
     <main class="dot-mask">
       <div
         class="flex md:items-center gap-16 flex-col md:flex-row md:py-20 h-full"
@@ -62,7 +62,7 @@ import Loader from "../components/Loader"
           />
       </div>
       <div class="relative">
-        <h1>current fav tech stacks/tools</h1>
+        <h1>Current fav tech stacks/tools</h1>
         <div class="flex items-center gap-3 mt-3">
           <TransitionEase client:idle duration={0.5}>
             <TypescriptIcon fill="gray" width={30} height={30}/>

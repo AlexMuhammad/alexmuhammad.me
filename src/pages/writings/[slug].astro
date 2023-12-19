@@ -40,7 +40,7 @@ const {Content, headings} = await post.render();
         </a>
         <PostHeader post={post}/>
         <div class="flex gap-12 dot-mask mb-14">
-            <div class="prose prose-sm prose-h2:text-red-600 md:prose-lg overflow-visible text-justify mt-10 border-l-2 px-5 md:px-10"><Content/></div>
+            <div class="prose prose-sm md:prose-lg overflow-visible text-justify mt-10 border-l-2 px-5 md:px-10"><Content/></div>
             <TableOfContent headings={headings}/>
         </div>
         <Comment client:idle/>
